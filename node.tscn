@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://b311e8b4nbtd7"]
+[gd_scene load_steps=18 format=3 uid="uid://b311e8b4nbtd7"]
 
 [ext_resource type="Texture2D" uid="uid://dd5jy5kpig2ed" path="res://New Piskel (45).png" id="1_8bwep"]
 [ext_resource type="Texture2D" uid="uid://jbdewxcxd566" path="res://aim.png" id="5_wr2u8"]
 [ext_resource type="PackedScene" uid="uid://7olacclr6lum" path="res://cylinder.tscn" id="7_17tku"]
 [ext_resource type="PackedScene" uid="uid://vsqe6hlgygdr" path="res://explosion.tscn" id="8_58s77"]
 [ext_resource type="PackedScene" uid="uid://d2h8ydru4lqua" path="res://player.tscn" id="8_5040y"]
+[ext_resource type="PackedScene" uid="uid://8qiuwui8pe1p" path="res://health.tscn" id="8_fe8ht"]
 [ext_resource type="PackedScene" uid="uid://ccbihr0mh3a5" path="res://prism.tscn" id="9_d6ppi"]
 [ext_resource type="Script" path="res://spawner.gd" id="11_aarxl"]
 
@@ -118,5 +119,7 @@ enemy = ExtResource("7_17tku")
 
 [node name="Player" parent="." instance=ExtResource("8_5040y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7985, 2.30031, -1.50676)
+
+[node name="health" parent="." instance=ExtResource("8_fe8ht")]
 
 [connection signal="body_entered" from="explosion/Area3D2" to="explosion" method="_on_area_3d_body_entered"]

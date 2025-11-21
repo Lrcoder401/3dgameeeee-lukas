@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://8qiuwui8pe1p"]
+
+[ext_resource type="Script" path="res://heal.gd" id="1_cqhre"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfc15"]
+albedo_color = Color(0.552941, 0.00392157, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_gqy7c"]
+lightmap_size_hint = Vector2i(17, 9)
+material = SubResource("StandardMaterial3D_mfc15")
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qdh0j"]
+radius = 0.25
+
+[node name="Heal" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55339, 0)
+layers = 4
+mesh = SubResource("SphereMesh_gqy7c")
+script = ExtResource("1_cqhre")
+timer = 8.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_qdh0j")

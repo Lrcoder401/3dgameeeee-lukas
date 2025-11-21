@@ -1,7 +1,8 @@
 extends Node
 
+@export var maxhealth: float
  
-var health 
+var health = maxhealth
 signal dead 
 func take_damage(value) :
 	health -= value
@@ -9,6 +10,10 @@ func take_damage(value) :
 		emit_signal("dead") 
 		
 
-	
+func heal(value) :
+	if health <= maxhealth :
+		health += value
+		
+		
 func set_health(value) :
 	health = value 

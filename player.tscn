@@ -49,6 +49,7 @@ script = ExtResource("4_hmci5")
 
 [node name="health" type="Node" parent="."]
 script = ExtResource("5_ov0gt")
+maxhealth = 100.0
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

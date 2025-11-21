@@ -11,7 +11,6 @@ var dead = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Replace with function body.
-	$"health".set_health(100)
 	print(get_node("/root/").name)
 	
 func _unhandled_input(event) :
