@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://7olacclr6lum"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_rxlpa"]
+[ext_resource type="Script" path="res://health.gd" id="2_22uf0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nwj36"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mye7q"]
+
+[node name="cylinder" type="MeshInstance3D" groups=["enemy group"]]
+transform = Transform3D(0.842737, 0, 0, 0, 0.431606, 0, 0, 0, 0.842737, -12.7985, 0.657821, -1.50676)
+mesh = SubResource("CylinderMesh_nwj36")
+script = ExtResource("1_rxlpa")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("CylinderShape3D_mye7q")
+
+[node name="health" type="Node" parent="StaticBody3D"]
+script = ExtResource("2_22uf0")
+
+[connection signal="dead" from="StaticBody3D/health" to="." method="_on_health_dead"]

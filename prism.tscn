@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccbihr0mh3a5"]
+
+[ext_resource type="Script" path="res://prism.gd" id="1_si3pf"]
+[ext_resource type="Script" path="res://health.gd" id="2_7jljj"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_t7a6n"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wwuen"]
+data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="prism" type="MeshInstance3D" groups=["enemy group"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.181878, 1.09968, -5.74505)
+mesh = SubResource("PrismMesh_t7a6n")
+script = ExtResource("1_si3pf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 11
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wwuen")
+
+[node name="health" type="Node" parent="StaticBody3D"]
+script = ExtResource("2_7jljj")
+
+[connection signal="dead" from="StaticBody3D/health" to="." method="_on_health_dead"]
