@@ -16,7 +16,7 @@ radius = 0.25
 
 [node name="Heal" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55339, 0)
-layers = 4
+layers = 5
 mesh = SubResource("SphereMesh_gqy7c")
 script = ExtResource("1_cqhre")
 timer = 8.0

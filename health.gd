@@ -1,9 +1,15 @@
 extends Node
 
 @export var maxhealth: float
- 
-var health = maxhealth
+
+var health
+
 signal dead 
+
+func _ready() -> void:
+	health = maxhealth
+
+
 func take_damage(value) :
 	health -= value
 	if health <= 0 :

@@ -24,4 +24,5 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	var body_health=body.get_node("health")
 	if body_health != null :
 		body_health.heal(20)
+		print("heal")
 	

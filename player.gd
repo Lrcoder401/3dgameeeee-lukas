@@ -12,6 +12,7 @@ var dead = false
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Replace with function body.
 	print(get_node("/root/").name)
+	print($"health".health)
 	
 func _unhandled_input(event) :
 	
@@ -31,26 +32,18 @@ func CameraLook(Movement: Vector2):
 	CameraRotation += Movement
 	CameraRotation.y = clamp(CameraRotation.y,-1,1.5)
 	
-	#transform.basis = Basis()
-	#MainCamera.transform.basis = Basis()
-	#P
-	#rotate_object_local(Vector3(0,1,0), -CameraRotation.x)
-	#
-	#
-	#rotate_object_local(Vector3(0,1,0), -CameraRotation.x)
-	#MainCamera.rotate_object_local(Vector3(1,0,0), -CameraRotation.y)
-	#rotation.x = -CameraRotation.y
+
 	MainCamera.rotation.x = -CameraRotation.y
-	#rotation.x = -CameraRotation.y
-	#MainCamera.rotation.y = -CameraRotation.x
+
 	rotation.y = -CameraRotation.x
-	#CameraRotation.x = -CameraRotation.y
-	#MainCamera.y = -CameraRotation.x
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	
 	if not dead : 
 		$"HUD/HP".text = "HP: "+str($"health".health)
+		
 		var movement = Vector3()
 		var input = Input.get_action_strength("move_forward")
 		movement += input * basis.z * -300.0 * delta
@@ -72,8 +65,8 @@ func _physics_process(delta: float) -> void:
 			input = Input.get_action_strength("ui_select")
 			velocity.y = 7*input
 			
-		if Input.is_key_pressed(KEY_J):
-			$"health".take_damage(100)
+		#if Input.is_key_pressed(KEY_J):
+			#$"health".take_damage(100)
 	velocity += get_gravity()*delta
 	move_and_slide()
 #wwwww

@@ -59,4 +59,4 @@ offset_bottom = 23.0
 theme = SubResource("Theme_tkttk")
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Health: 50"
+text = "Health: not set"

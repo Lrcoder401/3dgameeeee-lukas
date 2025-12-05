@@ -117,9 +117,9 @@ spawn_zone_corner_one = Vector3(0.697639, 0.380304, 100.32)
 spawn_zone_corner_two = Vector3(-106.739, 0.380304, 25.0472)
 enemy = ExtResource("7_17tku")
 
-[node name="Player" parent="." instance=ExtResource("8_5040y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7985, 2.30031, -1.50676)
-
 [node name="health" parent="." instance=ExtResource("8_fe8ht")]
+
+[node name="Player" parent="." instance=ExtResource("8_5040y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7985, 1.47604, -1.50676)
 
 [connection signal="body_entered" from="explosion/Area3D2" to="explosion" method="_on_area_3d_body_entered"]
