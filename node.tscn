@@ -85,7 +85,7 @@ texture = ExtResource("5_wr2u8")
 expand_mode = 1
 
 [node name="explosion" parent="." instance=ExtResource("8_58s77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48554, 1.22118, -2.96392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.008, 0.771793, 124.336)
 surface_material_override/0 = SubResource("StandardMaterial3D_tklio")
 
 [node name="Area3D2" type="Area3D" parent="explosion"]
@@ -117,7 +117,15 @@ spawn_zone_corner_one = Vector3(0.697639, 0.380304, 100.32)
 spawn_zone_corner_two = Vector3(-106.739, 0.380304, 25.0472)
 enemy = ExtResource("7_17tku")
 
+[node name="healthspawner" type="Node" parent="."]
+script = ExtResource("11_aarxl")
+enemy_spawn_rate = 0.3
+spawn_zone_corner_one = Vector3(117.008, 0.772, 124.336)
+enemy = ExtResource("8_fe8ht")
+
 [node name="health" parent="." instance=ExtResource("8_fe8ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0205, 0.659015, -4.35174)
+layers = 129
 
 [node name="Player" parent="." instance=ExtResource("8_5040y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7985, 1.47604, -1.50676)

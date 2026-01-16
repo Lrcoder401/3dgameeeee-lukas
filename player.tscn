@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2h8ydru4lqua"]
+[gd_scene load_steps=11 format=3 uid="uid://d2h8ydru4lqua"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_6q1d3"]
 [ext_resource type="Script" path="res://camera_3d.gd" id="2_pcjej"]
 [ext_resource type="ArrayMesh" uid="uid://1xvvksxvcgyp" path="res://deagle.obj" id="3_3nr0n"]
 [ext_resource type="Script" path="res://ray_cast_3d.gd" id="4_hmci5"]
 [ext_resource type="Script" path="res://health.gd" id="5_ov0gt"]
+[ext_resource type="Script" path="res://points.gd" id="6_hndn6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3aoay"]
 radius = 0.25
@@ -14,9 +15,11 @@ height = 1.0
 
 [sub_resource type="Theme" id="Theme_tkttk"]
 
+[sub_resource type="Theme" id="Theme_eulqk"]
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7985, 0.657821, -1.50676)
-collision_mask = 6
+collision_mask = 255
 script = ExtResource("1_6q1d3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -51,6 +54,9 @@ script = ExtResource("4_hmci5")
 script = ExtResource("5_ov0gt")
 maxhealth = 100.0
 
+[node name="points" type="Node" parent="."]
+script = ExtResource("6_hndn6")
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="HP" type="Label" parent="HUD"]
@@ -60,3 +66,19 @@ theme = SubResource("Theme_tkttk")
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Health: not set"
+
+[node name="POINTS" type="Label" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_top = 5.0
+offset_bottom = 47.0
+grow_horizontal = 0
+theme = SubResource("Theme_eulqk")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Points: HERE"
+horizontal_alignment = 2
+
+[connection signal="dead" from="health" to="." method="_on_health_dead"]

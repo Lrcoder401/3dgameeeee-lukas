@@ -17,9 +17,11 @@ func take_damage(value) :
 		
 
 func heal(value) :
-	if health <= maxhealth :
+	if health < maxhealth :
 		health += value
-		
+		if health > maxhealth :
+			health = maxhealth
+	#100	
 		
 func set_health(value) :
 	health = value 

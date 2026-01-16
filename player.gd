@@ -13,25 +13,21 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Replace with function body.
 	print(get_node("/root/").name)
 	print($"health".health)
-	
+
 func _unhandled_input(event) :
-	
 	if not dead :
 		if event.is_action_pressed("ui_cancel"): 
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if event.is_action_pressed("ui_text_newline"): 
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 		if event is InputEventMouseMotion:
 			var MouseEvent  = event.relative * MouseSenstivity
 			CameraLook(MouseEvent)
 
-		
-			
 func CameraLook(Movement: Vector2):
 	CameraRotation += Movement
 	CameraRotation.y = clamp(CameraRotation.y,-1,1.5)
-	
 
 	MainCamera.rotation.x = -CameraRotation.y
 
@@ -40,9 +36,10 @@ func CameraLook(Movement: Vector2):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	
 	if not dead : 
 		$"HUD/HP".text = "HP: "+str($"health".health)
+	if not dead : 
+		$"HUD/POINTS".text = "Points: "+str($"points".points)
 		
 		var movement = Vector3()
 		var input = Input.get_action_strength("move_forward")
@@ -78,5 +75,9 @@ func _on_health_dead() -> void:
 	add_child(scene_to_gameover)
 	dead = true 
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
-	
+	$"Gameover/Ui/POINTS".text = "Points: "+str($"points".points)
+	var root=get_node("/root/Node3D/")
+	for node in root.get_children():
+		if node == self :
+			continue
+		node.queue_free()
