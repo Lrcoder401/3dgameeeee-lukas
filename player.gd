@@ -38,7 +38,6 @@ func CameraLook(Movement: Vector2):
 func _physics_process(delta: float) -> void:
 	if not dead : 
 		$"HUD/HP".text = "HP: "+str($"health".health)
-	if not dead : 
 		$"HUD/POINTS".text = "Points: "+str($"points".points)
 		
 		var movement = Vector3()
@@ -50,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		
 		input = Input.get_action_strength("move_left")
 		movement += input * basis.x * -300.0 * delta
-			
+
 		input = Input.get_action_strength("move_right")
 		movement += input * basis.x * 300.0 * delta
 		
@@ -64,8 +63,11 @@ func _physics_process(delta: float) -> void:
 			
 		#if Input.is_key_pressed(KEY_J):
 			#$"health".take_damage(100)
-	velocity += get_gravity()*delta
-	move_and_slide()
+		velocity += get_gravity()*delta
+		if position.y < -20 :
+			$"health".take_damage(100)
+			print("dead")	  
+		move_and_slide()
 #wwwww
 
 
@@ -76,8 +78,13 @@ func _on_health_dead() -> void:
 	dead = true 
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$"Gameover/Ui/POINTS".text = "Points: "+str($"points".points)
+	print("point %d" % $"points".points)
 	var root=get_node("/root/Node3D/")
 	for node in root.get_children():
 		if node == self :
 			continue
 		node.queue_free()
+	#self.CollisionShape3D.queue_free()
+	#self.MeshInstance3D.queue_free()
+		
+		

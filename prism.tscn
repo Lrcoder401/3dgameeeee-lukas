@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccbihr0mh3a5"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_vug8c"]
-[ext_resource type="Script" path="res://health.gd" id="2_7jljj"]
+[ext_resource type="Script" uid="uid://dv3vd6rifohbn" path="res://enemy.gd" id="1_vug8c"]
+[ext_resource type="Script" uid="uid://cfj2h3nr3u7g8" path="res://health.gd" id="2_7jljj"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_t7a6n"]
 

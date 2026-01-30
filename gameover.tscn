@@ -54,5 +54,5 @@ grow_vertical = 2
 theme = SubResource("Theme_agnh8")
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "Points: HERE"
-horizontal_alignment = 2
+text = "Points: 0"
+horizontal_alignment = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://8qiuwui8pe1p"]
 
-[ext_resource type="Script" path="res://heal.gd" id="1_cqhre"]
+[ext_resource type="Script" uid="uid://dj4fhk4b7bhnl" path="res://heal.gd" id="1_cqhre"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfc15"]
 albedo_color = Color(0.552941, 0.00392157, 1, 1)
