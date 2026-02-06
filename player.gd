@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+static var highscore = 0
+
 @onready var ray_cast_3d = $RayCast3D
 @onready var MainCamera = get_node("Camera3D")
 #@onready var Player = get_node("Player")
@@ -7,9 +9,11 @@ var CameraRotation = Vector2(0,0)
 var PlayerRotaion = Vector2(0,0)
 @export var MouseSenstivity = 0.001
 @export var movement = Vector3()
-var dead = false 
+var dead = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$"points".set_points(0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Replace with function body.
 	print(get_node("/root/").name)
 	print($"health".health)
@@ -42,16 +46,16 @@ func _physics_process(delta: float) -> void:
 		
 		var movement = Vector3()
 		var input = Input.get_action_strength("move_forward")
-		movement += input * basis.z * -300.0 * delta
+		movement += input * basis.z * -3000.0 * delta
 
 		input = Input.get_action_strength("move_backward")
-		movement += input * basis.z * 300.0 * delta
+		movement += input * basis.z * 3000.0 * delta
 		
 		input = Input.get_action_strength("move_left")
-		movement += input * basis.x * -300.0 * delta
+		movement += input * basis.x * -3000.0 * delta
 
 		input = Input.get_action_strength("move_right")
-		movement += input * basis.x * 300.0 * delta
+		movement += input * basis.x * 3000.0 * delta
 		
 		velocity.x = movement.x
 		velocity.z = movement.z
@@ -79,10 +83,18 @@ func _on_health_dead() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$"Gameover/Ui/POINTS".text = "Points: "+str($"points".points)
 	print("point %d" % $"points".points)
+	if $"points".points > highscore : 
+		highscore = $"points".points
+	$"Gameover/Ui/Highschore".text = "Highscore: "+str(highscore)
+	print("point %d" % $"points".points)
 	var root=get_node("/root/Node3D/")
+	$"points".points = 0
+	
 	for node in root.get_children():
 		if node == self :
 			continue
+			
+		
 		node.queue_free()
 	#self.CollisionShape3D.queue_free()
 	#self.MeshInstance3D.queue_free()

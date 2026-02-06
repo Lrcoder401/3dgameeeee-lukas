@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2h8ydru4lqua"]
+[gd_scene load_steps=12 format=3 uid="uid://d2h8ydru4lqua"]
 
 [ext_resource type="Script" uid="uid://b47rajovbb2rb" path="res://player.gd" id="1_6q1d3"]
 [ext_resource type="Script" uid="uid://bh7o442qnuyns" path="res://camera_3d.gd" id="2_pcjej"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c4dw8moc7g4qv" path="res://ray_cast_3d.gd" id="4_hmci5"]
 [ext_resource type="Script" uid="uid://cfj2h3nr3u7g8" path="res://health.gd" id="5_ov0gt"]
 [ext_resource type="Script" uid="uid://d3r2dn5yyrfxa" path="res://points.gd" id="6_hndn6"]
+[ext_resource type="Texture2D" uid="uid://jbdewxcxd566" path="res://aim.png" id="7_1jxqw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3aoay"]
 radius = 0.25
@@ -18,7 +19,6 @@ height = 1.0
 [sub_resource type="Theme" id="Theme_eulqk"]
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7985, 0.657821, -1.50676)
 collision_mask = 255
 script = ExtResource("1_6q1d3")
 
@@ -80,5 +80,22 @@ theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Points: HERE"
 horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+anchors_preset = -1
+anchor_left = 0.495
+anchor_top = 0.491
+anchor_right = 0.505
+anchor_bottom = 0.509
+offset_left = -0.240051
+offset_top = -0.16803
+offset_right = 0.23999
+offset_bottom = 0.167999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+mouse_filter = 2
+texture = ExtResource("7_1jxqw")
+expand_mode = 1
 
 [connection signal="dead" from="health" to="." method="_on_health_dead"]

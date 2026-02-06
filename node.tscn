@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://b311e8b4nbtd7"]
+[gd_scene load_steps=17 format=3 uid="uid://b311e8b4nbtd7"]
 
 [ext_resource type="Texture2D" uid="uid://dd5jy5kpig2ed" path="res://New Piskel (45).png" id="1_8bwep"]
-[ext_resource type="Texture2D" uid="uid://jbdewxcxd566" path="res://aim.png" id="5_wr2u8"]
 [ext_resource type="PackedScene" uid="uid://7olacclr6lum" path="res://cylinder.tscn" id="7_17tku"]
 [ext_resource type="PackedScene" uid="uid://vsqe6hlgygdr" path="res://explosion.tscn" id="8_58s77"]
 [ext_resource type="PackedScene" uid="uid://d2h8ydru4lqua" path="res://player.tscn" id="8_5040y"]
@@ -67,22 +66,6 @@ shape = SubResource("BoxShape3D_qixxn")
 transform = Transform3D(0.842737, 0, 0, 0, 0.431602, 0.00342708, 0, -0.00175517, 0.84273, 27.0642, 5.31908, -1.50676)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -6.0
-offset_top = -6.0
-offset_right = 6.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("5_wr2u8")
-expand_mode = 1
 
 [node name="explosion" parent="." instance=ExtResource("8_58s77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.008, 0.771793, 124.336)
