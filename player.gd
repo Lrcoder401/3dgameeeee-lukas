@@ -46,16 +46,16 @@ func _physics_process(delta: float) -> void:
 		
 		var movement = Vector3()
 		var input = Input.get_action_strength("move_forward")
-		movement += input * basis.z * -3000.0 * delta
+		movement += input * basis.z * -300.0 * delta
 
 		input = Input.get_action_strength("move_backward")
-		movement += input * basis.z * 3000.0 * delta
+		movement += input * basis.z * 300.0 * delta
 		
 		input = Input.get_action_strength("move_left")
-		movement += input * basis.x * -3000.0 * delta
+		movement += input * basis.x * -300.0 * delta
 
 		input = Input.get_action_strength("move_right")
-		movement += input * basis.x * 3000.0 * delta
+		movement += input * basis.x * 300.0 * delta
 		
 		velocity.x = movement.x
 		velocity.z = movement.z
