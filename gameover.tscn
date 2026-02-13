@@ -6,6 +6,7 @@
 
 [node name="Gameover" type="CanvasLayer"]
 follow_viewport_enabled = true
+metadata/_edit_horizontal_guides_ = [979.0]
 
 [node name="Ui" type="Control" parent="."]
 layout_mode = 3
@@ -85,7 +86,7 @@ anchor_bottom = 0.043
 offset_left = 40.656
 offset_bottom = -4.864
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "Highscore: 0"
 
 [connection signal="pressed" from="Ui/reset button" to="Ui/reset button" method="_on_pressed"]
