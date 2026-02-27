@@ -82,6 +82,8 @@ shape = SubResource("SphereShape3D_fqgbd")
 
 [node name="spawner" type="Node" parent="."]
 script = ExtResource("11_aarxl")
+enemy = ExtResource("9_d6ppi")
+enabled = true
 
 [node name="spawner2" type="Node" parent="."]
 script = ExtResource("11_aarxl")
@@ -93,6 +95,8 @@ enemy = ExtResource("7_17tku")
 script = ExtResource("11_aarxl")
 spawn_zone_corner_one = Vector3(-0.4807, 0.343927, 25.0128)
 spawn_zone_corner_two = Vector3(105.668, 0.949047, 100.32)
+enemy = ExtResource("9_d6ppi")
+enabled = true
 
 [node name="spawner4" type="Node" parent="."]
 script = ExtResource("11_aarxl")

@@ -9,7 +9,6 @@
 data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="prism" type="MeshInstance3D" groups=["enemy group"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.181878, 1.09968, -5.74505)
 mesh = SubResource("PrismMesh_t7a6n")
 script = ExtResource("1_vug8c")
 
@@ -19,6 +18,7 @@ collision_mask = 11
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wwuen")
+debug_color = Color(3.17663e-06, 0.589546, 0.756522, 0.42)
 
 [node name="health" type="Node" parent="StaticBody3D"]
 script = ExtResource("2_7jljj")
