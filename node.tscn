@@ -45,7 +45,7 @@ albedo_color = Color(0.772549, 0.270588, 0, 1)
 environment = SubResource("Environment_wttrh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 155.477, 447.965, 636.236)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 156.007, 449.398, 637.253)
 shadow_enabled = true
 
 [node name="floor" type="MeshInstance3D" parent="."]
@@ -79,10 +79,11 @@ collision_mask = 5
 shape = SubResource("SphereShape3D_fqgbd")
 
 [node name="prism" parent="." instance=ExtResource("9_d6ppi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.08693, 0)
+speed = 0
 
 [node name="spawner" type="Node" parent="."]
 script = ExtResource("11_aarxl")
-enemy = ExtResource("9_d6ppi")
 enabled = true
 
 [node name="spawner2" type="Node" parent="."]
@@ -90,28 +91,30 @@ script = ExtResource("11_aarxl")
 spawn_zone_corner_one = Vector3(106.035, 1, -99.326)
 spawn_zone_corner_two = Vector3(-0.481, 1, -24.643)
 enemy = ExtResource("7_17tku")
+enabled = true
 
 [node name="spawner3" type="Node" parent="."]
 script = ExtResource("11_aarxl")
-spawn_zone_corner_one = Vector3(-0.4807, 0.343927, 25.0128)
-spawn_zone_corner_two = Vector3(105.668, 0.949047, 100.32)
-enemy = ExtResource("9_d6ppi")
+spawn_zone_corner_one = Vector3(-0.481, 1, 25.013)
+spawn_zone_corner_two = Vector3(105.668, 1, 100.32)
 enabled = true
 
 [node name="spawner4" type="Node" parent="."]
 script = ExtResource("11_aarxl")
-spawn_zone_corner_one = Vector3(0.697639, 0.380304, 100.32)
-spawn_zone_corner_two = Vector3(-106.739, 0.380304, 25.0472)
+spawn_zone_corner_one = Vector3(0.698, 1, 100.32)
+spawn_zone_corner_two = Vector3(-106.739, 1, 25.047)
 enemy = ExtResource("7_17tku")
+enabled = true
 
 [node name="healthspawner" type="Node" parent="."]
 script = ExtResource("11_aarxl")
 enemy_spawn_rate = 0.4
 spawn_zone_corner_one = Vector3(117.008, 0.772, 124.336)
 enemy = ExtResource("8_fe8ht")
+enabled = true
 
 [node name="health" parent="." instance=ExtResource("8_fe8ht")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0205, 0.659015, -4.35174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.426, 0.659015, -124.08)
 layers = 129
 
 [node name="Player" parent="." instance=ExtResource("8_5040y")]

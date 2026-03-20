@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2h8ydru4lqua"]
+[gd_scene load_steps=13 format=3 uid="uid://d2h8ydru4lqua"]
 
 [ext_resource type="Script" uid="uid://b47rajovbb2rb" path="res://player.gd" id="1_6q1d3"]
 [ext_resource type="Script" uid="uid://bh7o442qnuyns" path="res://camera_3d.gd" id="2_pcjej"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cfj2h3nr3u7g8" path="res://health.gd" id="5_ov0gt"]
 [ext_resource type="Script" uid="uid://d3r2dn5yyrfxa" path="res://points.gd" id="6_hndn6"]
 [ext_resource type="Texture2D" uid="uid://b0hq0175h2wqb" path="res://New Piskel (4).png" id="7_1jxqw"]
+[ext_resource type="AudioStream" uid="uid://depb6wkk7dac2" path="res://lmg_fire01 (2).mp3" id="8_dw050"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3aoay"]
 radius = 0.25
@@ -25,6 +26,8 @@ script = ExtResource("1_6q1d3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999943, 0, 0, 0, 0.999943, 0, 0, 0, 0.999943, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_3aoay")
+debug_color = Color(1, 1, 1, 0)
+debug_fill = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_hpram")
@@ -46,9 +49,17 @@ mesh = ExtResource("3_3nr0n")
 skeleton = NodePath("../../..")
 
 [node name="shootraycast" type="RayCast3D" parent="Camera3D"]
-transform = Transform3D(10, 0, 0, 0, -0.0437114, -10, 0, 1e+06, -4.37114e-07, -0.0528319, -0.0199995, 0.0653426)
+transform = Transform3D(10, 0, 0, 0, -0.0437114, -10, 0, 1e+06, -4.37114e-07, 0, 0, 0)
 collision_mask = 4
+hit_from_inside = true
 script = ExtResource("4_hmci5")
+
+[node name="Gun_Soundeffect" type="AudioStreamPlayer3D" parent="Camera3D/shootraycast"]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-14, 1e-06, 0, -0.1, -4.37114e-09, 0, 0, 0)
+stream = ExtResource("8_dw050")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
+current = true
 
 [node name="health" type="Node" parent="."]
 script = ExtResource("5_ov0gt")

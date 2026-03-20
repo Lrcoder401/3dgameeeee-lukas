@@ -2,11 +2,11 @@ extends Node
 
 #@export var totalpoints: float
 
-var points 
+var points: float
 
 
 func _ready() -> void:
-	points = 0
+	points = 0.0
 			
 
 func add_points(value) :

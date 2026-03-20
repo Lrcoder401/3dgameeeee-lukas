@@ -7,6 +7,7 @@
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wwuen"]
 data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+backface_collision = true
 
 [node name="prism" type="MeshInstance3D" groups=["enemy group"]]
 mesh = SubResource("PrismMesh_t7a6n")
@@ -15,10 +16,12 @@ script = ExtResource("1_vug8c")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 4
 collision_mask = 11
+input_capture_on_drag = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_wwuen")
-debug_color = Color(3.17663e-06, 0.589546, 0.756522, 0.42)
+debug_color = Color(1, 0, 0.133333, 0.647059)
 
 [node name="health" type="Node" parent="StaticBody3D"]
 script = ExtResource("2_7jljj")

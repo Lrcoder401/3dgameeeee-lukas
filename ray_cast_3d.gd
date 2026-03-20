@@ -8,6 +8,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		print("BANG")
+		print(self)
+		$"Gun_Soundeffect".play()
 		if is_colliding() :
 			var obj = get_collider()
 			print(obj)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://vsqe6hlgygdr"]
+[gd_scene load_steps=6 format=3 uid="uid://vsqe6hlgygdr"]
 
 [ext_resource type="Script" uid="uid://cfan0rmhadfj8" path="res://explosion.gd" id="1_hnpwu"]
+[ext_resource type="AudioStream" uid="uid://cd2pq6ph26mus" path="res://explosion.wav" id="2_vxas0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fohk2"]
 albedo_color = Color(0.945527, 0.564561, 3.85046e-07, 1)
@@ -11,7 +12,6 @@ material = SubResource("StandardMaterial3D_fohk2")
 [sub_resource type="SphereShape3D" id="SphereShape3D_kqsrq"]
 
 [node name="explosion" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0415566, 2.26872, -0.131201)
 mesh = SubResource("SphereMesh_epblp")
 script = ExtResource("1_hnpwu")
 
@@ -20,6 +20,11 @@ collision_layer = 8
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shape = SubResource("SphereShape3D_kqsrq")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_vxas0")
+autoplay = true
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

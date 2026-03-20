@@ -26,4 +26,4 @@ func _process(delta: float) -> void:
 			var x = randf_range(spawn_zone_corner_one.x,spawn_zone_corner_two.x)
 			var y = randf_range(spawn_zone_corner_one.y,spawn_zone_corner_two.y)
 			var z = randf_range(spawn_zone_corner_one.z,spawn_zone_corner_two.z)
-			new_scene.position = Vector3(x,y,z) 
+			new_scene.position = Vector3(x,y,z)
