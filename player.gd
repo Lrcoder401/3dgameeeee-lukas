@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-static var highscore = 0
+static var highscore = null
 
 @onready var ray_cast_3d = $RayCast3D
 @onready var MainCamera = get_node("Camera3D")
@@ -70,11 +70,17 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity()*delta
 		if position.y < -20 :
 			$"health".take_damage(100)
-			print("dead")	  
+			print("dead")
+
+		var vy = velocity.y 
 		move_and_slide()
-#wwwww
+		if is_on_floor() and vy < -20:
+			if is_on_floor() and vy < -30:
+				$"health".take_damage(90)
+			else:
+				$"health".take_damage(50)
 
-
+ 
 
 func _on_health_dead() -> void:
 	var scene_to_gameover = load("res://gameover.tscn").instantiate()
@@ -83,8 +89,11 @@ func _on_health_dead() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$"Gameover/Ui/POINTS".text = "Points: "+str($"points".points)
 	print("point %d" % $"points".points)
-	if $"points".points > highscore : 
+	if highscore == null:
 		highscore = $"points".points
+	else:
+		if $"points".points > highscore : 
+			highscore = $"points".points
 	$"Gameover/Ui/Highschore".text = "Highscore: "+str(highscore)
 	print("point %d" % $"points".points)
 	var root=get_node("/root/Node3D/")

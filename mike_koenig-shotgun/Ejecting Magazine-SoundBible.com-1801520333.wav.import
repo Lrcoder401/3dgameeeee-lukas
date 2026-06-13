@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://eqcaxb654e35"
+path="res://.godot/imported/Ejecting Magazine-SoundBible.com-1801520333.wav-bb990c0ce92531fa6f91ce60b55712ea.sample"
+
+[deps]
+
+source_file="res://mike_koenig-shotgun/Ejecting Magazine-SoundBible.com-1801520333.wav"
+dest_files=["res://.godot/imported/Ejecting Magazine-SoundBible.com-1801520333.wav-bb990c0ce92531fa6f91ce60b55712ea.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

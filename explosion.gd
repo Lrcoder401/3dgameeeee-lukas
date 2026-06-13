@@ -3,14 +3,15 @@ extends MeshInstance3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$"Area3D".monitorable = true
+	$"Area3D".monitoring = true
+	scale = Vector3.ZERO
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(self, "scale", Vector3(3, 3, 3), 0.5)
 	tween.tween_property(self, "transparency",1.5,1)
 	await tween.finished 
 	queue_free()
-	
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,6 +21,8 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	var body_health=body.get_node("health")
+	print("collide")
 	if body_health != null :
 		body_health.take_damage(10)
+		print("explosion")
 	

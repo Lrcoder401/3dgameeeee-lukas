@@ -1,18 +1,20 @@
 extends MeshInstance3D
 var scene_to_explosion = preload("res://explosion.tscn")
 @onready var d = $"../Player".position - position 
+@export var speed = 4
+
 # Called when the node enters the scene tree for the first time.
-var player_body_collide = false 
+var player_body_collide = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _ready() -> void:
 	pass
-
 
 func _process(delta: float) -> void:
 	var d: Vector3 = $"../Player".position - position 
 	if d.length() > 0.75 :
 		d = d.normalized() 
-		position += d * delta * 4
+		position += d * delta * speed
 		
 	else :
 		player_body_collide = true

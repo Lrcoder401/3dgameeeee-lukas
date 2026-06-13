@@ -7,6 +7,8 @@ var enemy_spawn_timer = 0
 
 @export var enemy: PackedScene = preload("res://prism.tscn")
 
+@export var enabled: bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,13 +16,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	enemy_spawn_timer += delta 
-	if enemy_spawn_timer >= (1.0/enemy_spawn_rate): 
-		enemy_spawn_timer = 0 
-		var new_scene = enemy.instantiate()
-		$"..".add_child(new_scene)
-		#new_scene.position = position
-		var x = randf_range(spawn_zone_corner_one.x,spawn_zone_corner_two.x)
-		var y = randf_range(spawn_zone_corner_one.y,spawn_zone_corner_two.y)
-		var z = randf_range(spawn_zone_corner_one.z,spawn_zone_corner_two.z)
-		new_scene.position = Vector3(x,y,z) 
+	if enabled:
+		enemy_spawn_timer += delta 
+		if enemy_spawn_timer >= (1.0/enemy_spawn_rate): 
+			enemy_spawn_timer = 0 
+			var new_scene = enemy.instantiate()
+			$"..".add_child(new_scene)
+			#new_scene.position = position
+			var x = randf_range(spawn_zone_corner_one.x,spawn_zone_corner_two.x)
+			var y = randf_range(spawn_zone_corner_one.y,spawn_zone_corner_two.y)
+			var z = randf_range(spawn_zone_corner_one.z,spawn_zone_corner_two.z)
+			new_scene.position = Vector3(x,y,z)

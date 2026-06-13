@@ -8,11 +8,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		print("BANG")
+		print(self)
+		$"Gun_Soundeffect".play()
 		if is_colliding() :
 			var obj = get_collider()
-			if obj.get_parent().is_in_group("enemy group") :  
+			print(obj)
+			if obj.get_parent().is_in_group("enemy group"):
 				obj.get_node("health").take_damage(4)
-				
+				print(obj.get_node("health").health)
 			#queue_free
 		#obj.get_parent().queue_free( )
 		#if (obj.is_in_group("apple")): 

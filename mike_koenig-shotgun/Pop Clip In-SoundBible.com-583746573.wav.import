@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccftcosvpmys2"
+path="res://.godot/imported/Pop Clip In-SoundBible.com-583746573.wav-9c5d29ff246726ad8fa5b3b5871b159c.sample"
+
+[deps]
+
+source_file="res://mike_koenig-shotgun/Pop Clip In-SoundBible.com-583746573.wav"
+dest_files=["res://.godot/imported/Pop Clip In-SoundBible.com-583746573.wav-9c5d29ff246726ad8fa5b3b5871b159c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
